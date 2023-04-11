@@ -32,4 +32,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/githubactions:${{ steps.slug.outputs.version }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/githubactions:${{ steps.slug.outputs.commit-hash-short }}
