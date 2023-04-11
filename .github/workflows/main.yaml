@@ -12,6 +12,10 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v3
+      - 
+        name: Get repository info
+        uses: gacts/github-slug@v1
+        id: slug
       -
         name: Login to Docker Hub
         uses: docker/login-action@v2
@@ -28,4 +32,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/githubactions:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/githubactions:${{ steps.slug.outputs.version }}
