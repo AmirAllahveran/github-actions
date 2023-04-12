@@ -33,3 +33,11 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/githubactions:${{ steps.slug.outputs.commit-hash-short }}
+          
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: tale/kubectl-action@v1
+  #     with:
+  #       base64-kube-config: ${{ secrets.KUBE_CONFIG }}
+  #   - run: kubectl set image deployment/front-end mycontainer=myimage:latest
